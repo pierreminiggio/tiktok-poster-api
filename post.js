@@ -1,0 +1,20 @@
+import post from '@pierreminiggio/tiktok-poster'
+
+const args = process.argv
+
+if (args.length !== 6) {
+    console.log('Use like this : node post.js [fbLogin] [fbPassword] [videoFileName] [legend]')
+    process.exit()
+}
+
+post(
+    args[2],
+    args[3],
+    args[4],
+    args[5]
+).then(videoLink => {
+    console.log(videoLink)
+}).catch(error => {
+    console.log('error')
+    console.log(error)
+})

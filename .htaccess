@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+RewriteBase /
+
+RewriteCond %{REQUEST_URI}  !\.(php|css|js|html?|jpg|gif|png|pdf|woff|woff2)$
+RewriteRule ^ public/index.php [L]
