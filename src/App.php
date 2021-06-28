@@ -74,7 +74,8 @@ class App
             return;
         }
 
-        $cacheFolder = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR;
+        $projectFolder = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;
+        $cacheFolder = $projectFolder . 'cache' . DIRECTORY_SEPARATOR;
         if (! file_exists($cacheFolder)) {
             mkdir($cacheFolder);
         }
@@ -99,7 +100,9 @@ class App
         $fbPassword = $fetchedAccount['fb_password'];
 
         $output = trim(shell_exec(
-            'node post.js '
+            'node '
+            . $projectFolder
+            . 'post.js '
             . escapeshellarg($fbLogin)
             . ' '
             . escapeshellarg($fbPassword)
@@ -107,6 +110,7 @@ class App
             . escapeshellarg($videoFileName)
             . ' '
             . escapeshellarg($jsonBody['legend'])
+            . ' 2>&1'
         ));
 
         unlink($videoFileName);
