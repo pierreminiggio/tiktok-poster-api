@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'proxy' => null,
     'token' => '',
     'db' => [
         'host' => '',

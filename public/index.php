@@ -19,7 +19,8 @@ $app = new App(
         $dbConfig['password'],
         DatabaseConnection::UTF8_MB4
     )),
-    $config['token']
+    $config['token'],
+    $config['proxy']
 );
 
 /** @var string $requestUrl */

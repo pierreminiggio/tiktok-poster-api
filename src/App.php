@@ -10,7 +10,8 @@ class App
 
     public function __construct(
         private DatabaseFetcher $fetcher,
-        private string $token
+        private string $token,
+        private ?string $proxy
     )
     {
     }
@@ -110,6 +111,11 @@ class App
             . escapeshellarg($videoFileName)
             . ' '
             . escapeshellarg($jsonBody['legend'])
+            . (
+                $this->proxy !== null
+                ? ' ' . escapeshellarg($this->proxy)
+                : ''
+            )
             . ' 2>&1'
         ));
 
