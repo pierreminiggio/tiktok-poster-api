@@ -12,6 +12,8 @@ post(
     args[3],
     args[4],
     args[5],
+    false,
+    (toLog) => {},
     args.length === 7 ? args[6] : null
 ).then(videoLink => {
     console.log(videoLink)
