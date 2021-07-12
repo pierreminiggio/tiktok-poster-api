@@ -101,7 +101,7 @@ class App
         $fbPassword = $fetchedAccount['fb_password'];
 
         $output = trim(shell_exec(
-            'node '
+            'LC_CTYPE=en_US.utf8 node '
             . $projectFolder
             . 'post.js '
             . escapeshellarg($fbLogin)
